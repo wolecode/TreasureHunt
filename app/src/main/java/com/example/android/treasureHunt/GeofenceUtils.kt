@@ -43,7 +43,7 @@ fun errorMessage(context: Context, errorCode: Int): String {
 /**
  * Stores latitude and longitude information along with a hint to help user find the location.
  */
-data class LandmarkDataObject(val id: String, val hint: Int, val name: Int, val latLong: LatLng)
+data class LandmarkDataObject(val id: String, val hint: Int, val name: Int, var latLong: LatLng)
 
 internal object GeofencingConstants {
 
@@ -58,13 +58,13 @@ internal object GeofencingConstants {
             "golden_gate_bridge",
             R.string.golden_gate_bridge_hint,
             R.string.golden_gate_bridge_location,
-            LatLng(37.819927, -122.478256)),
+            LatLng(6.287295, 5.625598)),
 
         LandmarkDataObject(
             "ferry_building",
             R.string.ferry_building_hint,
             R.string.ferry_building_location,
-            LatLng(37.795490, -122.394276)),
+            LatLng(6.287449, 5.625447)),
 
         LandmarkDataObject(
             "pier_39",
@@ -72,14 +72,14 @@ internal object GeofencingConstants {
             R.string.pier_39_location,
             LatLng(37.808674, -122.409821)),
 
-        LandmarkDataObject(
+       /* LandmarkDataObject(
            "union_square",
             R.string.union_square_hint,
             R.string.union_square_location,
-            LatLng(37.788151, -122.407570))
+            LatLng(37.788151, -122.407570))*/
     )
 
     val NUM_LANDMARKS = LANDMARK_DATA.size
-    const val GEOFENCE_RADIUS_IN_METERS = 100f
+    const val GEOFENCE_RADIUS_IN_METERS = 30f
     const val EXTRA_GEOFENCE_INDEX = "GEOFENCE_INDEX"
 }

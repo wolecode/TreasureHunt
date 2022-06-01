@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetLocationActivity">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/location_title"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/locationOneTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/first_location_title"
+        app:layout_constraintStart_toStartOf="@id/title"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/latitudeOneLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/latitude_hint"
+        app:layout_constraintTop_toBottomOf="@id/locationOneTitle"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/locationOneTitle"
+        app:layout_constraintHorizontal_bias="0"
+        >
+<com.google.android.material.textfield.TextInputEditText
+    android:id="@+id/latitudeOneText"
+    android:inputType="numberDecimal|numberSigned"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/longitudeOneLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginStart="10dp"
+        android:hint="@string/longitude_hint"
+        app:layout_constraintTop_toTopOf="@id/latitudeOneLayout"
+        app:layout_constraintStart_toEndOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="@id/title"
+        app:layout_constraintHorizontal_bias="0"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/longitudeOneText"
+            android:inputType="numberDecimal|numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <TextView
+        android:id="@+id/locationTwoTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/second_location_title"
+        app:layout_constraintStart_toStartOf="@id/latitudeOneLayout"
+        app:layout_constraintTop_toBottomOf="@id/latitudeOneLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/latitudeTwoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/latitude_hint"
+        app:layout_constraintTop_toBottomOf="@id/locationTwoTitle"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/locationTwoTitle"
+        app:layout_constraintHorizontal_bias="0"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/latitudeTwoText"
+            android:inputType="numberDecimal|numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/longitudeTwoLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginStart="10dp"
+        android:hint="@string/longitude_hint"
+        app:layout_constraintTop_toTopOf="@id/latitudeTwoLayout"
+        app:layout_constraintStart_toEndOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="@id/longitudeOneLayout"
+        app:layout_constraintHorizontal_bias="0"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/longitudeTwoText"
+            android:inputType="numberDecimal|numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/locationThreeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/third_location_title"
+        app:layout_constraintStart_toStartOf="@id/latitudeTwoLayout"
+        app:layout_constraintTop_toBottomOf="@id/latitudeTwoLayout" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/latitudeThreeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginEnd="10dp"
+        android:hint="@string/latitude_hint"
+        app:layout_constraintTop_toBottomOf="@id/locationThreeTitle"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/locationThreeTitle"
+        app:layout_constraintHorizontal_bias="0"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/latitudeThreeText"
+            android:inputType="numberDecimal|numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/longitudeThreeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:boxStrokeWidth="5dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:layout_marginStart="10dp"
+        android:hint="@string/longitude_hint"
+        app:layout_constraintTop_toTopOf="@id/latitudeThreeLayout"
+        app:layout_constraintStart_toEndOf="@id/guideline2"
+        app:layout_constraintEnd_toEndOf="@id/longitudeTwoLayout"
+        app:layout_constraintHorizontal_bias="0"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/longitudeThreeText"
+            android:inputType="numberDecimal|numberSigned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startHuntButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_hunt_button"
+        android:textColor="@android:color/white"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_marginTop="40dp"
+        android:padding="5dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="5dp"
+        app:layout_constraintTop_toBottomOf="@id/latitudeThreeLayout"
+        app:layout_constraintStart_toStartOf="@id/latitudeThreeLayout"
+        app:layout_constraintEnd_toEndOf="@id/longitudeThreeLayout"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50121653" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

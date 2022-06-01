@@ -75,8 +75,10 @@ class HuntMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_hunt_main)
+
         viewModel = ViewModelProviders.of(this, SavedStateViewModelFactory(this.application,
             this)).get(GeofenceViewModel::class.java)
+
         binding.viewmodel = viewModel
         binding.lifecycleOwner = this
         geofencingClient = LocationServices.getGeofencingClient(this)
@@ -201,7 +203,7 @@ class HuntMainActivity : AppCompatActivity() {
                     exception.startResolutionForResult(this@HuntMainActivity,
                         REQUEST_TURN_DEVICE_LOCATION_ON)
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    Log.d(TAG, "Error geting location settings resolution: " + sendEx.message)
+                    Log.d(TAG, "Error getting location settings resolution: " + sendEx.message)
                 }
             } else {
                 Snackbar.make(
@@ -248,20 +250,14 @@ class HuntMainActivity : AppCompatActivity() {
     private fun requestForegroundAndBackgroundLocationPermissions() {
         if (foregroundAndBackgroundLocationPermissionApproved())
             return
-
-        // Else request the permission
-        // this provides the result[LOCATION_PERMISSION_INDEX]
         var permissionsArray = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION)
-
         val resultCode = when {
             runningQOrLater -> {
-                // this provides the result[BACKGROUND_LOCATION_PERMISSION_INDEX]
                 permissionsArray += Manifest.permission.ACCESS_BACKGROUND_LOCATION
                 REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE
             }
             else -> REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
         }
-
         Log.d(TAG, "Request foreground only location permission")
         ActivityCompat.requestPermissions(
             this@HuntMainActivity,
@@ -319,6 +315,13 @@ class HuntMainActivity : AppCompatActivity() {
             // Regardless of success/failure of the removal, add the new geofence
             addOnCompleteListener {
                 // Add the new geofence request with the new geofence
+                if (ActivityCompat.checkSelfPermission(
+                        applicationContext,
+                        Manifest.permission.ACCESS_FINE_LOCATION
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                   requestForegroundAndBackgroundLocationPermissions()
+                }
                 geofencingClient.addGeofences(geofencingRequest, geofencePendingIntent)?.run {
                     addOnSuccessListener {
                         // Geofences added.
@@ -335,7 +338,7 @@ class HuntMainActivity : AppCompatActivity() {
                         Toast.makeText(this@HuntMainActivity, R.string.geofences_not_added,
                             Toast.LENGTH_SHORT).show()
                         if ((it.message != null)) {
-                            Log.w(TAG, it.message)
+                            Log.w(TAG, it.message!!)
                         }
                     }
                 }
